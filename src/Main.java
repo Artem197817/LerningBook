@@ -17,15 +17,14 @@ public class Main {
             historical.forEach(var10001::println);
             List<Book> yearSort = books.stream().sorted(Comparator.comparing(Book::getYearOfPublication)).toList();
             System.out.println();
-            List<Book> author = books.stream().filter((b) -> {
-                b.getAuthor().equals("Сергей Лукьяненко");
-            }).toList();
+            List<Book> author = books.stream().
+                    filter(b-> b.getAuthor().equals("Сергей Лукьяненко"))
+                        .toList();
             var10001 = System.out;
             Objects.requireNonNull(var10001);
             author.forEach(var10001::println);
-            boolean isAuthor = books.stream().anyMatch((b) -> {
-                return b.getTitle().equals("ghu");
-            });
+            boolean isAuthor = books.stream().anyMatch((b) ->
+                b.getTitle().equals("ghu"));
             System.out.println(isAuthor);
             Optional var10000 = books.stream().max(Comparator.comparing(Book::getNumberOfPage));
             var10001 = System.out;
